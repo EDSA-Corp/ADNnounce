@@ -5,8 +5,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import './global.css';
 import { HomeScreen } from 'screens/HomeScreen';
 import { LoginScreen } from 'screens/LoginScreen';
+import { RegisterAdminScreen } from 'screens/RegisterAdminScreen';
 import { OnBoardingScreen } from 'screens/OnBoardingScreen';
 import { RegisterScreen } from 'screens/RegisterScreen';
+import StudentScreen from 'screens/StudentOrAdminScreen';
 
 import { auth, onAuthStateChanged } from './firebase';
 import React, { useState, useEffect } from 'react';
@@ -22,7 +24,7 @@ export default function App() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log("User is logged in:", user.email);
+        console.log('User is logged in:', user.email);
       } else {
         setUser(null);
       }
@@ -50,6 +52,8 @@ export default function App() {
             <Stack.Screen name="OnBoarding" component={OnBoardingScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="AdminRegister" component={RegisterAdminScreen} />
+            <Stack.Screen name="Student" component={StudentScreen} />
           </>
         )}
       </Stack.Navigator>
