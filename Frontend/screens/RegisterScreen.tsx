@@ -7,8 +7,9 @@ import Modal from 'react-native-modal';
 import LoadingModal from 'components/LoadingModal';
 import { blue } from 'react-native-reanimated/lib/typescript/Colors';
 
-export const RegisterAdminScreen = ({ navigation }) => {
-  //Add for Page Name
+export const RegisterScreen = ({ navigation }) => {
+  const [FName, setFName] = useState('');
+  const [LName, setLName] = useState('');
   const [email, setEmail] = useState('');
   const [org, setOrg] = useState({});
   const [pass, setPass] = useState('');
@@ -26,6 +27,8 @@ export const RegisterAdminScreen = ({ navigation }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          FName,
+          LName,
           email,
           org,
           pass,
@@ -67,29 +70,46 @@ export const RegisterAdminScreen = ({ navigation }) => {
       <View className="flex-[15] bg-white">
         <View className="h-full items-center justify-center rounded-b-[150px] bg-darkBlue">
           <Image source={logo} style={{ width: 150, height: 150 }} />
-          {/* Page Name */}
-          <Text
-            style={{
-              color: 'white',
-              fontSize: 14,
-              marginVertical: 3,
-              alignSelf: 'flex-start',
-              marginLeft: 48,
-            }}>
-            Page Name
-          </Text>
-          <TextInput
-            style={{
-              width: '80%',
-              height: 50,
-              backgroundColor: 'white',
-              borderWidth: 1,
-              borderColor: 'black',
-              borderRadius: 10,
-              paddingHorizontal: 10,
-            }}
-            placeholder="Enter Page Name"
-          />
+          {/* First Name & Last Name Text Input */}
+          <View className="flex w-[80%] flex-row items-center justify-between">
+            {/* First Name */}
+            <View className="flex-[50%]">
+              <Text style={{ color: 'white', fontSize: 14, marginVertical: 3 }}>First Name</Text>
+              <TextInput
+                style={{
+                  width: '95%',
+                  height: 50,
+                  backgroundColor: 'white',
+                  borderWidth: 1,
+                  borderColor: 'black',
+                  borderRadius: 10,
+                  paddingHorizontal: 10,
+                }}
+                placeholder="Enter First Name"
+                value={FName}
+                onChangeText={setFName}
+              />
+            </View>
+
+            {/* Last Name */}
+            <View className="flex-[50%]">
+              <Text style={{ color: 'white', fontSize: 13, marginVertical: 3 }}>Last Name</Text>
+              <TextInput
+                style={{
+                  width: '95%',
+                  height: 50,
+                  backgroundColor: 'white',
+                  borderWidth: 1,
+                  borderColor: 'black',
+                  borderRadius: 10,
+                  paddingHorizontal: 10,
+                }}
+                placeholder="Enter Last Name"
+                value={LName}
+                onChangeText={setLName}
+              />
+            </View>
+          </View>
 
           {/* Email */}
           <Text

@@ -8,6 +8,7 @@ import { LoginScreen } from 'screens/LoginScreen';
 import { RegisterAdminScreen } from 'screens/RegisterAdminScreen';
 import { OnBoardingScreen } from 'screens/OnBoardingScreen';
 import { RegisterScreen } from 'screens/RegisterScreen';
+
 import StudentScreen from 'screens/StudentOrAdminScreen';
 
 import { auth, onAuthStateChanged } from './firebase';
