@@ -22,18 +22,18 @@ export const Register = () => {
   const ipAdd = API_BASE_URL;
   const registerUser = async () => {
     try {
-      const res = await axios.post(ipAdd + "register", {
+      const res = await axios.post(ipAdd + 'register', {
         email,
         userName,
         password: pass,
         confirmPassword: confirmPass,
-        organization: org
+        organization: org,
       });
       const data = res.data;
       if (data.code === 'error') {
         alert(data.message);
       } else {
-        alert("Registered Successfully");
+        alert('Registered Successfully');
         navigation.navigate(data.redirect);
       }
     } catch (err) {
@@ -41,77 +41,106 @@ export const Register = () => {
     }
   };
 
-  const eyeOpen = <Image source={require('../assets/eye-open.png')} style={{ width: 20, height: 20 }} />;
-  const eyeClose = <Image source={require('../assets/eye-close.png')} style={{ width: 20, height: 20 }} />;
+  const eyeOpen = (
+    <Image source={require('../assets/eye-open.png')} style={{ width: 20, height: 20 }} />
+  );
+  const eyeClose = (
+    <Image source={require('../assets/eye-close.png')} style={{ width: 20, height: 20 }} />
+  );
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-      <View style={{ flex: 1, backgroundColor: '#003A6C', alignItems: 'center', paddingBottom: 20 }}>
-        <Image source={logo} style={{ width: 150, height: 150, marginTop: 40 }} />
+      <View style={{ flex: 9, backgroundColor: 'white' }}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: '#003A6C',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingBottom: 20,
+            borderBottomLeftRadius: 90,
+            borderBottomRightRadius: 90,
+            overflow: 'hidden',
+          }}>
+          <Image source={logo} style={{ width: 150, height: 150, marginTop: 40 }} />
 
-        {/* Username */}
-        <Text style={styles.label}>Username</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Username"
-          value={userName}
-          onChangeText={setUserName}
-        />
-
-        {/* Email */}
-        <Text style={styles.label}>Email</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Enter Email"
-          value={email}
-          onChangeText={setEmail}
-        />
-
-        {/* Organization */}
-        <Text style={styles.label}>Organization</Text>
-        <View style={styles.input}>
-          <RNPickerSelect
-            onValueChange={setOrg}
-            placeholder={{ label: 'Choose an organization', value: null }}
-            items={[
-              { label: 'COCS', value: { orgAbbr: 'COCS', orgName: 'College Of Computer Science' } },
-              { label: 'ABBS', value: { orgAbbr: 'ABBS', orgName: 'Association of Bicol Business Schools' } },
-              { label: 'AJMA', value: { orgAbbr: 'AJMA', orgName: 'Ateneo Junior Marketing Association' } },
-            ]}
-          />
-        </View>
-
-        {/* Password */}
-        <Text style={styles.label}>Password</Text>
-        <View style={styles.passwordContainer}>
+          {/* Username */}
+          <Text style={styles.label}>Username</Text>
           <TextInput
-            style={styles.passwordInput}
-            secureTextEntry={!showPassword}
-            placeholder="Enter Password"
-            value={pass}
-            onChangeText={setPass}
+            style={styles.input}
+            placeholder="Enter Username"
+            value={userName}
+            onChangeText={setUserName}
           />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>{showPassword ? eyeClose : eyeOpen}</TouchableOpacity>
-        </View>
 
-        {/* Confirm Password */}
-        <Text style={styles.label}>Confirm Password</Text>
-        <View style={styles.passwordContainer}>
+          {/* Email */}
+          <Text style={styles.label}>Email</Text>
           <TextInput
-            style={styles.passwordInput}
-            secureTextEntry={!showPassword}
-            placeholder="Confirm Password"
-            value={confirmPass}
-            onChangeText={setConfirmPass}
+            style={styles.input}
+            placeholder="Enter Email"
+            value={email}
+            onChangeText={setEmail}
           />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>{showPassword ? eyeClose : eyeOpen}</TouchableOpacity>
+
+          {/* Organization */}
+          <Text style={styles.label}>Organization</Text>
+          <View style={styles.input}>
+            <RNPickerSelect
+              onValueChange={setOrg}
+              placeholder={{ label: 'Choose an organization', value: null }}
+              items={[
+                {
+                  label: 'COCS',
+                  value: { orgAbbr: 'COCS', orgName: 'College Of Computer Science' },
+                },
+                {
+                  label: 'ABBS',
+                  value: { orgAbbr: 'ABBS', orgName: 'Association of Bicol Business Schools' },
+                },
+                {
+                  label: 'AJMA',
+                  value: { orgAbbr: 'AJMA', orgName: 'Ateneo Junior Marketing Association' },
+                },
+              ]}
+            />
+          </View>
+
+          {/* Password */}
+          <Text style={styles.label}>Password</Text>
+          <View style={styles.passwordContainer}>
+            <TextInput
+              style={styles.passwordInput}
+              secureTextEntry={!showPassword}
+              placeholder="Enter Password"
+              value={pass}
+              onChangeText={setPass}
+            />
+            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+              {showPassword ? eyeClose : eyeOpen}
+            </TouchableOpacity>
+          </View>
+
+          {/* Confirm Password */}
+          <Text style={styles.label}>Confirm Password</Text>
+          <View style={styles.passwordContainer}>
+            <TextInput
+              style={styles.passwordInput}
+              secureTextEntry={!showPassword}
+              placeholder="Confirm Password"
+              value={confirmPass}
+              onChangeText={setConfirmPass}
+            />
+            <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+              {showPassword ? eyeClose : eyeOpen}
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
 
       {/* Buttons Section */}
-      <View style={{ flex: 1, backgroundColor: 'white', alignItems: 'center', paddingVertical: 20 }}>
+      <View className="flex-[2.5] bg-white">
         <CustomButton
-          onPress={registerUser}
+          onPress={() => registerUser()}
           title="Sign Up"
           titleColor="white"
           backgroundColor="#003A6C"
@@ -119,10 +148,12 @@ export const Register = () => {
           width="75%"
           margin={20}
         />
-        <View style={{ flexDirection: 'row' }}>
+        <View className="flex-row items-center justify-center">
           <Text style={{ color: '#003A6C' }}>Already have an Account? </Text>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: '#003A6C' }}>Sign In Here</Text>
+            <Text style={{ textDecorationLine: 'underline', fontWeight: 'bold', color: '#003A6C' }}>
+              Sign In Here
+            </Text>
           </TouchableOpacity>
         </View>
       </View>

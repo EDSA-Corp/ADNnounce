@@ -5,24 +5,25 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
-import { Home } from './screens/Home'
+import { Home } from './screens/Home';
 import { Login } from 'screens/Login';
 import { OnBoarding } from 'screens/OnBoarding';
 import { Register } from 'screens/Register';
 import { Orgs } from 'screens/Orgs';
+import StudentScreen from 'screens/StudentOrAdminScreen';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown:false}} />
-        <Stack.Screen name='Login' component={Login} options={{headerShown:false}} />
-        <Stack.Screen name='Register' component={Register} options={{headerShown:false}} />
-        <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-        <Stack.Screen name="Orgs" component={Orgs} options={{headerShown:false}}/>
-
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Orgs" component={Orgs} options={{ headerShown: false }} />
+        <Stack.Screen name="SoA" component={StudentScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

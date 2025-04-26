@@ -1,13 +1,5 @@
 import React, { useRef, useState, useCallback } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  Dimensions,
-  StyleSheet,
-  FlatList,
-  ViewToken,
-} from 'react-native';
+import { View, Text, Image, Dimensions, StyleSheet, FlatList, ViewToken } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
@@ -117,8 +109,7 @@ const Pagination = ({
           style={[
             paginationStyles.dot,
             {
-              backgroundColor:
-                paginationIndex === index ? '#003A6C' : '#FFFFFF',
+              backgroundColor: paginationIndex === index ? '#003A6C' : '#FFFFFF',
             },
           ]}
         />
@@ -171,9 +162,7 @@ const Slider = ({ itemList }: { itemList: ImageSliderType[] }) => {
       <Animated.FlatList
         data={data}
         keyExtractor={(_, i) => i.toString()}
-        renderItem={({ item, index }) => (
-          <SliderItem item={item} index={index} scrollX={scrollX} />
-        )}
+        renderItem={({ item, index }) => <SliderItem item={item} index={index} scrollX={scrollX} />}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -191,7 +180,7 @@ const Slider = ({ itemList }: { itemList: ImageSliderType[] }) => {
 };
 
 // OnBoardingScreen
-export const OnBoarding= () => {
+export const OnBoarding = () => {
   const navigation = useNavigation();
 
   return (
@@ -212,7 +201,7 @@ export const OnBoarding= () => {
           titleStyle={{ fontWeight: 'bold' }}
         />
         <CustomButton
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => navigation.navigate('SoA')}
           title="Create New Account"
           backgroundColor="#E6EBF0"
           titleColor="#00294D"

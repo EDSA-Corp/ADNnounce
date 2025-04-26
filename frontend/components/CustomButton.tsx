@@ -1,27 +1,44 @@
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 
-export const CustomButton = ({title='Click Me!', onPress, borderRadius = 5, margin=0, backgroundColor='green', width="60%", height = 60, titleColor = '#FFFFF'}) => {
+export const CustomButton = ({
+  title = 'Click Me!',
+  onPress,
+  borderRadius = 5,
+  margin = 0,
+  backgroundColor = 'green',
+  width = '60%',
+  height = 60,
+  titleColor = '#FFFFFF',
+  icon = null, // 🔹 New prop for the icon
+}) => {
   return (
-    <View className='flex justify-center items-center'>
-        <TouchableOpacity style={{
-            width: width,
-            height: height,
-            borderRadius: borderRadius,
-            margin: margin,
-            backgroundColor:backgroundColor,
-            display:'flex',
-            justifyContent:'center',
-            shadowColor: "black",
-            shadowOffset: { width: 5, height: 5 },
-            shadowOpacity: 0.5,
-            shadowRadius: 5,
-            elevation: 5, 
-        }} onPress={onPress}>
-                <Text style={{
-                  color: titleColor
-                }} className='text-center color-white'>{title}</Text>
-         </TouchableOpacity>
+    <View className="flex items-center justify-center">
+      <TouchableOpacity
+        style={{
+          width: width,
+          height: height,
+          borderRadius: borderRadius,
+          margin: margin,
+          backgroundColor: backgroundColor,
+          flexDirection: 'row', // 🔹 Layout: icon + text
+          justifyContent: 'center',
+          alignItems: 'center',
+          shadowColor: 'black',
+          shadowOffset: { width: 5, height: 5 },
+          shadowOpacity: 0.5,
+          shadowRadius: 5,
+          elevation: 5,
+        }}
+        onPress={onPress}>
+        {icon && <View style={{ marginRight: 10 }}>{icon}</View>}
+        <Text
+          style={{
+            color: titleColor,
+          }}
+          className="text-center">
+          {title}
+        </Text>
+      </TouchableOpacity>
     </View>
-
   );
 };

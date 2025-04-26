@@ -5,9 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import { jwtDecode } from 'jwt-decode';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { API_BASE_URL } from '../utils/config'; 
+import { API_BASE_URL } from '../utils/config';
 import { SafeAreaView } from 'react-native-safe-area-context';
-
 
 // Images
 const logo = require('../assets/logo-2.png');
@@ -22,9 +21,9 @@ export const Login = () => {
 
   const sendData = async () => {
     try {
-      const res = await axios.post(ipAdd + "login", {
+      const res = await axios.post(ipAdd + 'login', {
         email: email,
-        password: pass
+        password: pass,
       });
 
       const data = res.data;
@@ -35,22 +34,22 @@ export const Login = () => {
         await AsyncStorage.setItem('authToken', data.token);
         console.log('✅ Token stored successfully');
 
-        Alert.alert("Success", "Successful login");
+        Alert.alert('Success', 'Successful login');
         console.log(decoded);
 
-        navigation.navigate("Orgs", { orgAbbr: 'All', orgName: 'All' });
+        navigation.navigate('Orgs', { orgAbbr: 'All', orgName: 'All' });
       } else {
         if (data.message === 'TOO_MANY_ATTEMPTS_TRY_LATER') {
-          Alert.alert("Error", "Too many login attempts. Please try again later.");
+          Alert.alert('Error', 'Too many login attempts. Please try again later.');
         } else if (data.message === 'INVALID_LOGIN_CREDENTIALS') {
-          Alert.alert("Error", "Invalid Credentials. Please try again.");
+          Alert.alert('Error', 'Invalid Credentials. Please try again.');
         } else {
-          Alert.alert("Error", data.message);
+          Alert.alert('Error', data.message);
         }
       }
     } catch (err) {
       console.log(err);
-      Alert.alert("Error", "An unexpected error occurred.");
+      Alert.alert('Error', 'An unexpected error occurred.');
     }
   };
 
@@ -60,19 +59,23 @@ export const Login = () => {
       {/* <Image source={logo} /> */}
 
       <View style={{ flex: 9, backgroundColor: 'white' }}>
-        <View style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderBottomLeftRadius: 150,
-          borderBottomRightRadius: 150,
-          backgroundColor: '#003A6C'
-        }}>
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderBottomLeftRadius: 150,
+            borderBottomRightRadius: 150,
+            backgroundColor: '#003A6C',
+          }}>
           {/* Logo */}
           <Image source={logo} style={{ width: 150, height: 150, marginBottom: 20 }} />
 
           {/* Email */}
-          <Text style={{ alignSelf: 'flex-start', marginLeft: 40, marginBottom: 5, color: 'white' }}>Email</Text>
+          <Text
+            style={{ alignSelf: 'flex-start', marginLeft: 40, marginBottom: 5, color: 'white' }}>
+            Email
+          </Text>
           <TextInput
             style={{
               width: '80%',
@@ -81,7 +84,7 @@ export const Login = () => {
               borderWidth: 1,
               borderColor: 'black',
               borderRadius: 10,
-              paddingHorizontal: 10
+              paddingHorizontal: 10,
             }}
             value={email}
             onChangeText={setEmail}
@@ -89,7 +92,10 @@ export const Login = () => {
           />
 
           {/* Password */}
-          <Text style={{ alignSelf: 'flex-start', marginLeft: 40, marginVertical: 10, color: 'white' }}>Password</Text>
+          <Text
+            style={{ alignSelf: 'flex-start', marginLeft: 40, marginVertical: 10, color: 'white' }}>
+            Password
+          </Text>
           <TextInput
             style={{
               width: '80%',
@@ -98,7 +104,7 @@ export const Login = () => {
               borderWidth: 1,
               borderColor: 'black',
               borderRadius: 10,
-              paddingHorizontal: 10
+              paddingHorizontal: 10,
             }}
             value={pass}
             onChangeText={setPass}
@@ -109,8 +115,7 @@ export const Login = () => {
           {/* Forgot Password */}
           <TouchableOpacity
             onPress={() => Alert.alert('Notice', 'This feature is still under development')}
-            style={{ alignSelf: 'flex-start', marginLeft: 40, marginTop: 10 }}
-          >
+            style={{ alignSelf: 'flex-start', marginLeft: 40, marginTop: 10 }}>
             <Text style={{ color: '#BDC3C7' }}>Forgot Password?</Text>
           </TouchableOpacity>
 
@@ -122,7 +127,7 @@ export const Login = () => {
               backgroundColor="#FFFFFF"
               titleColor="#003A6C"
               height={50}
-              width='300'
+              width="300"
               borderRadius={20}
             />
           </View>
@@ -143,22 +148,24 @@ export const Login = () => {
               titleColor="#003A6C"
               height={50}
               width="300"
-               borderRadius={20}
+              borderRadius={20}
+              icon={<Image source={google} style={{ width: 24, height: 24 }} />}
             />
           </View>
         </View>
       </View>
 
       {/* Bottom Registration Prompt */}
-      <View style={{
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'white'
-      }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          backgroundColor: 'white',
+        }}>
         <Text>Don't Have An Account? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SoA')}>
           <Text style={{ textDecorationLine: 'underline' }}>Register Now</Text>
         </TouchableOpacity>
       </View>
