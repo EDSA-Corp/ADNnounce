@@ -9,7 +9,7 @@ export const CustomButton = ({
   width = '60%',
   height = 60,
   titleColor = '#FFFFFF',
-  icon = null, // 🔹 New prop for the icon
+  icon = null,
 }) => {
   return (
     <View className="flex items-center justify-center">
@@ -20,7 +20,7 @@ export const CustomButton = ({
           borderRadius: borderRadius,
           margin: margin,
           backgroundColor: backgroundColor,
-          flexDirection: 'row', // 🔹 Layout: icon + text
+          flexDirection: 'row',
           justifyContent: 'center',
           alignItems: 'center',
           shadowColor: 'black',
