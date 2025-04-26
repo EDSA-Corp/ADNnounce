@@ -1,19 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './App.{js,ts,tsx}', 
-    './components/**/*.{js,ts,tsx}', 
-    './screens/**/*.{js,ts,tsx}'  
+    "./App.{js,jsx,ts,tsx}",
+    "./screens/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
   ],
 
   presets: [require('nativewind/preset')],
   theme: {
-    extend: {
-      colors: {
-        customBlue: '#547B9D',
-        darkBlue: '#003A6C'
-      }
-    },
+    extend: {},
   },
   plugins: [],
 };

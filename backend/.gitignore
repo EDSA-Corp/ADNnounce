@@ -1,0 +1,10 @@
+servicekey/
+
+# Environment files
+.env
+
+# Node modules
+node_modules/
+
+# OS-specific junk
+.DS_Store

@@ -1,6 +1,6 @@
 {
-  "cesVersion": "2.12.2",
-  "projectName": "ADNnounce",
+  "cesVersion": "2.14.3",
+  "projectName": "frontend",
   "packages": [
     {
       "name": "nativewind",
@@ -13,7 +13,8 @@
     "overwrite": false,
     "importAlias": true,
     "packageManager": "npm",
-    "eas": false
+    "eas": false,
+    "publish": false
   },
   "packageManager": {
     "type": "npm",
