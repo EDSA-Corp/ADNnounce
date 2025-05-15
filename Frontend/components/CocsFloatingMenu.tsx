@@ -8,15 +8,19 @@ const FloatingMenu = () => {
   return (
     <View style={styles.container}>
       <View style={styles.menuBox}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CocsAdminpage')}>
           <Image source={require('../assets/homeimg.png')} style={styles.icon} />
+        </TouchableOpacity>
+        {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}
+        <TouchableOpacity onPress={() => navigation.navigate('ForAllpage')}>
+          <Image source={require('../assets/showall.png')} style={styles.icon} />
         </TouchableOpacity>
         {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}
         <TouchableOpacity onPress={() => navigation.navigate('/')}>
           <Image source={require('../assets/Heart.png')} style={styles.icon} />
         </TouchableOpacity>
         {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}
-        <TouchableOpacity onPress={() => navigation.navigate('/')}>
+        <TouchableOpacity onPress={() => navigation.navigate('CocsChat')}>
           <Image source={require('../assets/message.png')} style={styles.icon} />
         </TouchableOpacity>
         {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}
