@@ -11,19 +11,21 @@ import { OnBoarding } from 'screens/OnBoarding';
 import { Register } from 'screens/Register';
 import { Orgs } from 'screens/Orgs';
 import StudentScreen from 'screens/StudentOrAdminScreen';
+import Adminpage from 'screens/CocsAdminpage';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Adminpage">
         <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Orgs" component={Orgs} options={{ headerShown: false }} />
         <Stack.Screen name="SoA" component={StudentScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Adminpage" component={Adminpage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
