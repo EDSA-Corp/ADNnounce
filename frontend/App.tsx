@@ -13,6 +13,8 @@ import { Orgs } from 'screens/Orgs';
 import StudentScreen from 'screens/StudentOrAdminScreen';
 import Adminpage from 'screens/CocsAdminpage';
 
+import Create from 'features/createpost';
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -26,6 +28,7 @@ export default function App() {
         <Stack.Screen name="Orgs" component={Orgs} options={{ headerShown: false }} />
         <Stack.Screen name="SoA" component={StudentScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Adminpage" component={Adminpage} options={{ headerShown: false }} />
+        <Stack.Screen name="Create" component={Create} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

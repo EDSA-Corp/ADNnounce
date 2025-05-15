@@ -15,7 +15,7 @@ const FloatingMenu = () => {
         <TouchableOpacity onPress={() => navigation.navigate('/')}>
           <Image source={require('../assets/Heart.png')} style={styles.icon} />
         </TouchableOpacity>
-        {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}   
+        {/* Need gumawa don sa home navigate tas pwede na magay dito san pupunta */}
         <TouchableOpacity onPress={() => navigation.navigate('/')}>
           <Image source={require('../assets/message.png')} style={styles.icon} />
         </TouchableOpacity>
@@ -25,10 +25,7 @@ const FloatingMenu = () => {
         </TouchableOpacity>
       </View>
 
-      <TouchableOpacity
-        style={styles.addButton}
-        onPress={() => navigation.navigate('Create')}
-      >
+      <TouchableOpacity style={styles.addButton} onPress={() => navigation.navigate('Create')}>
         <Image source={require('../assets/add.png')} style={styles.plusIcon} />
       </TouchableOpacity>
     </View>

@@ -9,46 +9,41 @@ import {
   ScrollView,
 } from 'react-native';
 import FeaturedCarousel from '../components/CocsFeaturedCarousel';
-import FloatingMenu from '../components/CocsFloatingMenu'; 
-import RadialBackground from '../components/CocsRadialBackground'; 
+import FloatingMenu from '../components/CocsFloatingMenu';
+import RadialBackground from '../components/CocsRadialBackground';
 import { useNavigation } from '@react-navigation/native';
 import Thepostofpage from 'components/CocsThepostofpage';
 
 const Adminpage = () => {
-  const navigation = useNavigation(); 
+  const navigation = useNavigation();
 
   const handleNotificationPress = () => {
     console.log('Notification clicked');
-    //navigation.navigate(''); pag nagawa na page pa lagay dito 
+    //navigation.navigate(''); pag nagawa na page pa lagay dito
   };
 
   const handleProfilePress = () => {
     console.log('Profile clicked');
-    //navigation.navigate(''); pag nagawa na page pa lagay dito 
+    //navigation.navigate(''); pag nagawa na page pa lagay dito
   };
 
   const handleManagePostPress = () => {
     console.log('Manage Post clicked');
-    //navigation.navigate(''); pag nagawa na page pa lagay dito 
+    //navigation.navigate(''); pag nagawa na page pa lagay dito
   };
 
   return (
     <View style={styles.container}>
       <RadialBackground /> {/* Background Component */}
-
       {/* Scrollable content */}
       <ScrollView
         contentContainerStyle={{ paddingBottom: 120 }}
-        showsVerticalScrollIndicator={false}
-      >
+        showsVerticalScrollIndicator={false}>
         {/* Top bar with notification and profile */}
         <View style={styles.topBar}>
           <TouchableOpacity onPress={handleNotificationPress}>
             <View style={styles.notificationContainer}>
-              <Image
-                source={require('../assets/noti.png')}
-                style={styles.bellIcon}
-              />
+              <Image source={require('../assets/noti.png')} style={styles.bellIcon} />
               <View style={styles.badge}>
                 <Text style={styles.badgeText}>1</Text>
               </View>
@@ -57,25 +52,15 @@ const Adminpage = () => {
 
           <TouchableOpacity onPress={handleProfilePress}>
             <View style={styles.profileContainer}>
-              <Image
-                source={require('../assets/cocs.png')}
-                style={styles.profileImage}
-              />
+              <Image source={require('../assets/cocs.png')} style={styles.profileImage} />
             </View>
           </TouchableOpacity>
         </View>
 
         {/* Search Bar */}
         <View style={styles.searchContainer}>
-          <Image
-            source={require('../assets/search.png')}
-            style={styles.searchIcon}
-          />
-          <TextInput
-            placeholder="Search"
-            placeholderTextColor="#999"
-            style={styles.searchInput}
-          />
+          <Image source={require('../assets/search.png')} style={styles.searchIcon} />
+          <TextInput placeholder="Search" placeholderTextColor="#999" style={styles.searchInput} />
         </View>
 
         {/* si Carousel */}
@@ -87,16 +72,10 @@ const Adminpage = () => {
         {/* Announcements Section with Manage Post Button */}
         <View style={styles.Announcements}>
           <Text style={styles.featureTitle}>Announcements</Text>
-          
+
           {/* Manage Post Button */}
-          <TouchableOpacity 
-            onPress={handleManagePostPress} 
-            style={styles.managePostButton}
-          >
-            <Image
-              source={require('../assets/setting.png')}
-              style={styles.managePostIcon}
-            />
+          <TouchableOpacity onPress={handleManagePostPress} style={styles.managePostButton}>
+            <Image source={require('../assets/setting.png')} style={styles.managePostIcon} />
             <Text style={styles.managePostText}>Manage Post</Text>
           </TouchableOpacity>
         </View>
@@ -106,7 +85,6 @@ const Adminpage = () => {
           <Thepostofpage />
         </View>
       </ScrollView>
-
       {/* Floating Menu */}
       <FloatingMenu />
     </View>
@@ -208,9 +186,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   Announcements: {
-    flexDirection: 'row', 
-    justifyContent: 'space-between', 
-    alignItems: 'center', 
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginTop: 30,
     marginHorizontal: 16,
   },
@@ -239,7 +217,5 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
 
-  AllPostshown: {
-
-  },
+  AllPostshown: {},
 });
