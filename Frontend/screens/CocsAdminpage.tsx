@@ -50,7 +50,7 @@ const Adminpage = () => {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={handleProfilePress}>
+          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
             <View style={styles.profileContainer}>
               <Image source={require('../assets/cocs.png')} style={styles.profileImage} />
             </View>
