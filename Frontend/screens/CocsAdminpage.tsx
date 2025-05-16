@@ -71,7 +71,7 @@ const Adminpage = () => {
 
         {/* Announcements Section with Manage Post Button */}
         <View style={styles.Announcements}>
-          <Text style={styles.featureTitle}>Announcements</Text>
+          <Text style={styles.featureTitle2}>Announcements</Text>
 
           {/* Manage Post Button */}
           <TouchableOpacity onPress={handleManagePostPress} style={styles.managePostButton}>
@@ -180,6 +180,13 @@ const styles = StyleSheet.create({
   },
   featureTitle: {
     fontSize: 28,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    marginHorizontal: 16,
+    marginBottom: 10,
+  },
+  featureTitle2: {
+    fontSize: 23,
     fontWeight: 'bold',
     color: '#FFFFFF',
     marginHorizontal: 16,
