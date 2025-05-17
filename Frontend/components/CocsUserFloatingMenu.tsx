@@ -28,8 +28,6 @@ const FloatingMenu = () => {
           <Image source={require('../assets/save.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
-
-
     </View>
   );
 };

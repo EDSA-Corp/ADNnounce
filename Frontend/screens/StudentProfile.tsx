@@ -5,20 +5,14 @@ import ProfilePic from 'components/Profile';
 import Support from 'components/support';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Profile() {
+export default function ProfileS() {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <RadialBackground />
-      <Image source={require('../assets/pat.png')} />
-      <Text style={styles.text}>Ateneo COCS</Text>
-      <Text style={styles.gbox}>tactics_org.gbox.adnu.edu.ph</Text>
-
-      {/* TouchableOpacity now holds the editButton style */}
-      <TouchableOpacity style={styles.editButton} onPress={() => {}}>
-        <Image source={require('../assets/edit.png')} style={styles.editIcon} />
-        <Text style={styles.editText}>Edit Page</Text>
-      </TouchableOpacity>
+      <Image source={require('../assets/pat2.png')} style={styles.profilepic} />
+      <Text style={styles.text}>Patrick Nhel L. Estrella</Text>
+      <Text style={styles.gbox}>pnestralla@gbox.adnu.edu.ph</Text>
 
       {/* Profile Container */}
       <View style={styles.support}>
@@ -46,6 +40,11 @@ export default function Profile() {
         <View style={styles.divider} />
         <Text style={{ color: 'white', fontWeight: 'bold' }}> Login</Text>
         <View style={styles.divider} />
+
+        <TouchableOpacity style={styles.optionRow}>
+          <Image source={require('../assets/account.png')} style={styles.optionIcon} />
+          <Text style={styles.optionText}>Add Account</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={() => navigation.navigate('Login')} style={styles.optionRow}>
           <Image source={require('../assets/logout.png')} style={styles.optionIcon} />
@@ -131,5 +130,10 @@ const styles = StyleSheet.create({
   optionText2: {
     color: '#DE4343',
     fontSize: 16,
+  },
+  profilepic: {
+    width: 150,
+    height: 150,
+    borderRadius: 1000,
   },
 });

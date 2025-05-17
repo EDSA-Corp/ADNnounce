@@ -14,11 +14,12 @@ import Profile from './screens/Profile';
 import ForAllpage from './screens/ForAllpage';
 import CocsAdminpage from './screens/CocsAdminpage';
 import CocsChat from './screens/CocsChat';
-import CocsUserpage from './screens/CocsUserpage';
+
 import CocsForAllpage from './screens/UserForAllpage';
 import CocsUserChat from './screens/CocsUserChat';
 import CocsUserMessage from './screens/CocsUserMessage';
 import Create from './features/createpost';
+import ProfileS from './screens/StudentProfile';
 
 export type RootStackParamList = {
   OnBoarding: undefined;
@@ -28,6 +29,7 @@ export type RootStackParamList = {
   Orgs: undefined;
   SoA: undefined;
   Adminpage: undefined;
+  ProfileStudent: undefined;
   Create: undefined;
   Profile: undefined;
   ForAllpage: undefined;
@@ -58,10 +60,9 @@ export default function App() {
         <Stack.Screen name="Adminpage" component={Adminpage} />
         <Stack.Screen name="Create" component={Create} />
         <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="ForAllpage" component={ForAllpage} />
+        <Stack.Screen name="ProfileStudent" component={ProfileS} />
         <Stack.Screen name="CocsAdminpage" component={CocsAdminpage} />
         <Stack.Screen name="CocsChat" component={CocsChat} />
-        <Stack.Screen name="CocsUserpage" component={CocsUserpage} />
         <Stack.Screen name="CocsForAllpage" component={CocsForAllpage} />
         <Stack.Screen name="CocsUserChat" component={CocsUserChat} />
         <Stack.Screen name="CocsUserMessage" component={CocsUserMessage} />
