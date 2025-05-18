@@ -10,12 +10,14 @@ export default function Profile() {
   return (
     <View style={styles.container}>
       <RadialBackground />
-      <Image source={require('../assets/pat.png')} />
+      <ProfilePic />
       <Text style={styles.text}>Ateneo COCS</Text>
       <Text style={styles.gbox}>tactics_org.gbox.adnu.edu.ph</Text>
 
       {/* TouchableOpacity now holds the editButton style */}
-      <TouchableOpacity style={styles.editButton} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.editButton}
+        onPress={() => navigation.navigate('EditPageScreen')}>
         <Image source={require('../assets/edit.png')} style={styles.editIcon} />
         <Text style={styles.editText}>Edit Page</Text>
       </TouchableOpacity>

@@ -29,7 +29,7 @@ const Adminpage = () => {
 
   const handleManagePostPress = () => {
     console.log('Manage Post clicked');
-    //navigation.navigate(''); pag nagawa na page pa lagay dito
+    navigation.navigate('ManagePostScreen');
   };
 
   return (

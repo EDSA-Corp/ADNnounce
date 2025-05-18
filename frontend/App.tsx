@@ -20,6 +20,8 @@ import CocsUserChat from './screens/CocsUserChat';
 import CocsUserMessage from './screens/CocsUserMessage';
 import Create from './features/createpost';
 import ProfileS from './screens/StudentProfile';
+import ManagePostsScreen from './screens/ManagePosts';
+import EditPageScreen from './screens/EditPageScreen';
 
 export type RootStackParamList = {
   OnBoarding: undefined;
@@ -30,6 +32,7 @@ export type RootStackParamList = {
   SoA: undefined;
   Adminpage: undefined;
   ProfileStudent: undefined;
+  EditPageScreen: undefined;
   Create: undefined;
   Profile: undefined;
   ForAllpage: undefined;
@@ -37,6 +40,7 @@ export type RootStackParamList = {
   CocsChat: undefined;
   CocsUserpage: undefined;
   CocsForAllpage: undefined;
+  ManagePostScreen: undefined;
   CocsUserChat: undefined;
   CocsUserMessage: {
     author: string;
@@ -50,7 +54,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="CocsUserpage" screenOptions={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="CocsAdminpage" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
@@ -66,6 +70,8 @@ export default function App() {
         <Stack.Screen name="CocsForAllpage" component={CocsForAllpage} />
         <Stack.Screen name="CocsUserChat" component={CocsUserChat} />
         <Stack.Screen name="CocsUserMessage" component={CocsUserMessage} />
+        <Stack.Screen name="ManagePostScreen" component={ManagePostsScreen} />
+        <Stack.Screen name="EditPageScreen" component={EditPageScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
