@@ -9,6 +9,7 @@ import { Button } from 'components/Button';
 
 export const Orgs = () => {
     const route = useRoute();
+    
     const {orgAbbr} = route.params;
     const [decoded, setDecoded]= useState('');
     const navigation = useNavigation()
@@ -21,9 +22,7 @@ export const Orgs = () => {
             const token = await AsyncStorage.getItem('authToken');
             if (token !== null) {
               console.log("✅ Successfully retrieved")
-              setDecoded(jwtDecode(token))
-              alert(jwtDecode(token))
-              return jwtDecode(token);
+              return token;
             }
           } catch (error) {
             alert('No tokens provided')
@@ -35,11 +34,14 @@ export const Orgs = () => {
         };
       
         getToken().then(res => {
-          setUser(res.email)
+          const payload = jwtDecode(res);
+          setUser(payload.email)
         })
        
       
       },[])
+
+      // console.log('=----', decoded)
 
       const removeToken = async () => {
         try {
@@ -55,7 +57,7 @@ export const Orgs = () => {
 
     
   return (
-    <SafeAreaView>
+    <SafeAreaView className='bg-blue-700 h-full'>
       
       {/* Yung parang filter to */}
       <OrgSelector/>

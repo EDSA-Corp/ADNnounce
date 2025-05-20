@@ -46,7 +46,7 @@ export default function StudentScreen({ navigation }) {
           {/* Admin */}
           <View className="w-full">
             <CustomButton
-              onPress={() => navigation.navigate('Adminpage')}
+              onPress={() => navigation.navigate('AdminRegister')}
               title="Admin"
               backgroundColor="#FFFFFF"
               titleColor="#003A6C"

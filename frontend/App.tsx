@@ -1,77 +1,32 @@
 import './global.css';
+import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { ScreenContent } from 'components/ScreenContent';
 import { StatusBar } from 'expo-status-bar';
-
 import { Home } from './screens/Home';
-import { Login } from './screens/Login';
-import { OnBoarding } from './screens/OnBoarding';
-import { Register } from './screens/Register';
-import { Orgs } from './screens/Orgs';
-import StudentScreen from './screens/StudentOrAdminScreen';
-import Adminpage from './screens/CocsAdminpage';
-import Profile from './screens/Profile';
-import ForAllpage from './screens/ForAllpage';
-import CocsAdminpage from './screens/CocsAdminpage';
-import CocsChat from './screens/CocsChat';
-
-import CocsForAllpage from './screens/UserForAllpage';
-import CocsUserChat from './screens/CocsUserChat';
-import CocsUserMessage from './screens/CocsUserMessage';
-import Create from './features/createpost';
-import ProfileS from './screens/StudentProfile';
-import ManagePostsScreen from './screens/ManagePosts';
-import EditPageScreen from './screens/EditPageScreen';
-
-export type RootStackParamList = {
-  OnBoarding: undefined;
-  Login: undefined;
-  Register: undefined;
-  Home: undefined;
-  Orgs: undefined;
-  SoA: undefined;
-  Adminpage: undefined;
-  ProfileStudent: undefined;
-  EditPageScreen: undefined;
-  Create: undefined;
-  Profile: undefined;
-  ForAllpage: undefined;
-  CocsAdminpage: undefined;
-  CocsChat: undefined;
-  CocsUserpage: undefined;
-  CocsForAllpage: undefined;
-  ManagePostScreen: undefined;
-  CocsUserChat: undefined;
-  CocsUserMessage: {
-    author: string;
-    timestamp: string;
-    body1: string;
-  };
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
+import { Login } from 'screens/Login';
+import { OnBoarding } from 'screens/OnBoarding';
+import { Register } from 'screens/Register';
+import { Orgs } from 'screens/Orgs';
+import StudentScreen from 'screens/StudentOrAdminScreen';
+import { AdminProfile } from 'screens/AdminProfile';
+import { UserProfile } from 'screens/UserProfile';
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="CocsAdminpage" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="OnBoarding" component={OnBoarding} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Orgs" component={Orgs} />
-        <Stack.Screen name="SoA" component={StudentScreen} />
-        <Stack.Screen name="Adminpage" component={Adminpage} />
-        <Stack.Screen name="Create" component={Create} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="ProfileStudent" component={ProfileS} />
-        <Stack.Screen name="CocsAdminpage" component={CocsAdminpage} />
-        <Stack.Screen name="CocsChat" component={CocsChat} />
-        <Stack.Screen name="CocsForAllpage" component={CocsForAllpage} />
-        <Stack.Screen name="CocsUserChat" component={CocsUserChat} />
-        <Stack.Screen name="CocsUserMessage" component={CocsUserMessage} />
-        <Stack.Screen name="ManagePostScreen" component={ManagePostsScreen} />
-        <Stack.Screen name="EditPageScreen" component={EditPageScreen} />
+      <Stack.Navigator initialRouteName="OnBoarding">
+        <Stack.Screen name="OnBoarding" component={OnBoarding} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Orgs" component={Orgs} options={{ headerShown: false }} />
+        <Stack.Screen name="SoA" component={StudentScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="AdminProfile" component={AdminProfile} options={{ headerShown: false }} />
+        <Stack.Screen name="UserProfile" component={UserProfile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

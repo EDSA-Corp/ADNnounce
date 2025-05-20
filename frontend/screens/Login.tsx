@@ -7,6 +7,7 @@ import { jwtDecode } from 'jwt-decode';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_BASE_URL } from '../utils/config';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import LoadingModal from 'components/LoadingModal';
 
 // Images
 const logo = require('../assets/logo-2.png');
@@ -16,10 +17,13 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const navigation = useNavigation();
+  const [loading,setLoading] = useState(false);
 
   const ipAdd = API_BASE_URL;
+  console.log(API_BASE_URL)
 
   const sendData = async () => {
+    setLoading(true)
     try {
       const res = await axios.post(ipAdd + 'login', {
         email: email,
@@ -37,12 +41,15 @@ export const Login = () => {
         Alert.alert('Success', 'Successful login');
         console.log(decoded);
 
-        navigation.navigate('Orgs', { orgAbbr: 'All', orgName: 'All' });
+        navigation.navigate('Home');
+        // navigation.navigate('Orgs', { orgAbbr: 'All', orgName: 'All' });
       } else {
         if (data.message === 'TOO_MANY_ATTEMPTS_TRY_LATER') {
           Alert.alert('Error', 'Too many login attempts. Please try again later.');
         } else if (data.message === 'INVALID_LOGIN_CREDENTIALS') {
           Alert.alert('Error', 'Invalid Credentials. Please try again.');
+        }if(data.message === 'Credential implementation provided to initializeApp() via the "credential" property failed to fetch a valid Google OAuth2 access token with the following error: "request to https://www.googleapis.com/oauth2/v4/token failed, reason: getaddrinfo ENOTFOUND www.googleapis.com".'){
+          Alert.alert('Error', "Internet is Unavailable Please try again later")
         } else {
           Alert.alert('Error', data.message);
         }
@@ -50,8 +57,14 @@ export const Login = () => {
     } catch (err) {
       console.log(err);
       Alert.alert('Error', 'An unexpected error occurred.');
+    }finally{
+      setLoading(false)
     }
   };
+
+  if(loading){
+    return <LoadingModal></LoadingModal>
+  }
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
